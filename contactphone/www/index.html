@@ -1,0 +1,156 @@
+<!-- @author : Amara Diallo / M1IABD-ESP -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactPhone</title>
+    <link rel="stylesheet" href="lib/themes/contactphone.min.css">
+    <link rel="stylesheet" href="lib/themes/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="lib/jquery.mobile.structure-1.4.5.min.css">
+    <!-- <link rel="stylesheet" href="lib/jquery.mobile-1.4.5.min.css"> -->
+    <link rel="stylesheet" href="css/index.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+
+</head>
+<body>
+
+    <!-- Page d'accueil -->
+    <div id="homePage" data-role="page">
+        <div data-role="header">
+            <h1>ContactPhone</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <a href="#addContactPage" data-role="button" data-icon="plus" data-iconpos="right">Ajouter un contact</a>
+            <ul id="contactList" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Rechercher un contact">
+                <li>
+                    <a href="#">
+                        <img src="img/contact1.jpg" alt="">
+                        <h2>Amara Diallo</h2>
+                        <p>77 692 22 06</p>
+                    </a>
+                   
+                </li>
+
+                <!-- <li>
+                    <a href="#">
+                        <img src="img/contact1.jpg" alt="">
+                        <h2>Alice Faye</h2>
+                        <p>78 226 32 42</p>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/contact1.jpg" alt="">
+                        <h2>Roronoa Zoro</h2>
+                        <p>77 677 76 66</p>
+                    </a>
+                  
+                </li> -->
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>M1IABD-ESP &copy; 2024</h1>
+        </div>
+    </div>
+
+    <!-- Page d'ajout contact -->
+    <div id="addContactPage" data-role="page">
+
+        <div data-role="header">
+            <a href="#" data-rel="back" data-icon="home" data-iconpos="notext">Home</a>
+            <h1>ContactPhone</h1>
+        </div>
+
+        
+        <div role="main" class="ui-content">
+            <div data-role="header">
+                <!-- <a href="#" data-rel="back" data-icon="home" data-iconpos="notext">Home</a> -->
+                <h1>Ajouter un contact</h1>
+            </div><br>
+            <form id="addContactForm">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom">
+                <label for="telephone">Téléphone</label>
+                <input type="number" id="telephone">
+                <label for="email">Email</label>
+                <input type="email" id="email">
+                <input type="button" value="Ajouter" onclick="addContact()">
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>M1IABD-ESP &copy; 2024</h1>
+        </div>
+    </div>
+ 
+    <!-- Page de détails du contact -->
+    <div id="contactDetailsPage" data-role="page">
+        <div data-role="header">
+            <a href="#homePage" data-rel="" data-icon="home" data-iconpos="notext">Home</a>
+            <h1>ContactPhone</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div data-role="header">
+                <h1>Détails du contact</h1>
+                <a href="#editContactPage" id="editContactBtn" data-icon="edit" data-iconpos="notext">Modifier</a>
+                <a href="#" id="deleteContactBtn" data-icon="delete" data-iconpos="notext">Supprimer</a>
+            </div><br>
+            <img id="contactImage" src="img/contact1.jpg" alt="Contact Image">
+            <h2 id="contactName"></h2>
+        
+            <div class="ui-grid-a">
+                <div class="ui-block-a" style="padding-right: 7px;">
+                    <a href="#" id="callContactBtn" data-role="button" data-icon="phone">Appeler</a>
+                </div>
+                <div class="ui-block-b" style="padding-left: 7px;">
+                    <a href="#" id="messageContactBtn" data-role="button" data-icon="comment">Message</a>
+                </div>
+                <br>
+                <div>
+                    <p id="contactPhone">Numéro : <span id="contactPhoneNumber"></span></p>
+                    <p id="contactEmail">Email : <span id="contactEmailAddress"></span></p>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h1>M1IABD-ESP &copy; 2024</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page de modification du contact -->
+    <div id="editContactPage" data-role="page">
+        <div data-role="header">
+            <!-- <a href="#contactDetailsPage" data-rel="back" data-icon="home" data-iconpos="notext">Home</a> -->
+            <h1>ContactPhone</h1>
+        </div>
+        <div role="main" class="ui-content">
+        <div data-role="header">
+            <!-- <a href="#" data-rel="back" data-icon="home" data-iconpos="notext">Home</a> -->
+            <h1>Modifier le contact</h1>
+        </div><br>
+            <form id="editContactForm">
+                <label for="editPrenom">Prénom</label>
+                <input type="text" id="editPrenom">
+                <label for="editNom">Nom</label>
+                <input type="text" id="editNom">
+                <label for="editTelephone">Téléphone</label>
+                <input type="number" id="editTelephone">
+                <label for="editEmail">Email</label>
+                <input type="email" id="editEmail">
+                <input type="button" value="Enregistrer" onclick="updateContact()">
+                <input type="button" value="Annuler" onclick="cancelEdit()">
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h1>M1IABD-ESP &copy; 2024</h1>
+        </div>
+    </div>
+
+</body>
+</html>

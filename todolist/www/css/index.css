@@ -1,0 +1,81 @@
+ /* @author : Amara Diallo / M1IABD-ESP */
+
+ body {
+    /* font-family: Arial, sans-serif;
+    padding: 10px; */
+    text-align: center;
+  }
+
+  label{
+    color: white;
+  }
+  label,input[type=text]
+  {
+    text-align: center;
+  }
+  /* .termine{
+    text-decoration: line-through;
+  } */
+  .ui-content div[data-role=header]
+  {
+    border-radius: 20px;
+  }
+
+/*
+  .ajouter{
+    background-color: rgb(25, 220, 25) !important;
+  }
+
+  .reset{
+    background-color: rgb(227, 52, 52) !important;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    color : blue
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  button{
+      background-color : rgb(101, 192, 213)
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    color: #999;
+  } */
